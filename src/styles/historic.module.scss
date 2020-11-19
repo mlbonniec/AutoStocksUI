@@ -1,0 +1,23 @@
+#historic {
+  display: table;
+  font-size: 1rem;
+  border-spacing: .5rem;
+  width: 100%;
+}
+
+.header {display: table-header-group;}
+.header .cell {font-weight: bold; cursor: initial; white-space: nowrap;}
+
+.row {display: table-row;}
+.cell {
+  display: table-cell;
+  border: 1px solid rgba(255, 255, 255, .1);
+  padding: .5rem;
+  hyphens: auto;
+  line-break: anywhere;
+  cursor: pointer;
+  
+  &:nth-child(1), &:nth-child(2), &:nth-child(3) {
+    line-break: initial;
+  }
+}
