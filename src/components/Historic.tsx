@@ -10,7 +10,7 @@ export interface IItem {
 }
 
 interface IHistoric {
-  items: Array<IItem>;
+  items: IItem[];
 }
 
 function Item({ assetFill, barcode, description, receivableZones, skuId }: IItem): ReactElement {

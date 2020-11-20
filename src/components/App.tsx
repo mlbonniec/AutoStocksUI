@@ -5,7 +5,7 @@ import Historic, { IItem } from './Historic';
 
 export default function App() {
   const [barcode, setBarcode] = useState<string | null>(null);
-  const [historic, setHistoric] = useState<Array<IItem>>([]);
+  const [historic, setHistoric] = useState<IItem[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   
   useEffect(() => {
