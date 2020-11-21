@@ -1,4 +1,5 @@
 import React, { Fragment, ReactElement } from 'react';
+import cls from '../utils/multi-classes';
 import style from '../styles/historic.module.scss';
 
 export interface IItem {
@@ -26,6 +27,10 @@ function Item({ GR_CD, GR_LB, RETAILER_PRODUCT_ID, EAN }: IItem): ReactElement {
 export default function Historic({ items }: IHistoric): ReactElement {
   return (
     <Fragment>
+      <h1>Historique des ajouts</h1>
+      <div id={style.container}>
+       <div className={style.content}>
+        <div className={cls(style.header, style.row)}>
             <div className={style.cell}>GR_CD</div>
             <div className={style.cell}>GR_CD</div>
             <div className={style.cell}>RETAILER_PRODUCT_ID</div>
@@ -34,6 +39,8 @@ export default function Historic({ items }: IHistoric): ReactElement {
           {items.map((e: IItem, i: number) => (
             <Item GR_CD={e.GR_CD} GR_LB={e.GR_LB} RETAILER_PRODUCT_ID={e.RETAILER_PRODUCT_ID} EAN={e.EAN} key={i} />
           ))}
+       </div>
+      </div>
     </Fragment>
   );
 }
