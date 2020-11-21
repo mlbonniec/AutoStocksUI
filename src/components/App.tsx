@@ -15,13 +15,7 @@ export default function App() {
         try {
           const sku = await axios.post(process.env.REACT_APP_API_URL + '/sku/' + barcode);
 
-          setHistoric([{
-            skuId: sku.data['MPX'],
-            barcode: sku.data['Code-barre'],
-            assetFill: sku.data['Asset Fill'],
-            description: sku.data['Designation'],
-            receivableZones: sku.data['Zones'],
-          }, ...historic]);
+          setHistoric([sku.data, ...historic]);
         } catch (e) {
           if (e?.response?.status === 404)
             console.log('404 Status');
