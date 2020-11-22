@@ -2,7 +2,6 @@ import axios from 'axios';
 import React, { Fragment, useEffect, useState } from 'react';
 import Historic, { IItem } from './Historic';
 import Input from './Input';
-// import style from '../styles/app.module.scss';
 
 export default function App() {
   const [barcode, setBarcode] = useState<string>('');
