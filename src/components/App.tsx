@@ -7,8 +7,12 @@ export default function App() {
   const [barcode, setBarcode] = useState<string>('');
   const [historic, setHistoric] = useState<IItem[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<boolean>(false);
   
   useEffect(() => {
+    if (error)
+      setError(false);
+
     if (barcode?.length === 13) {
       (async () => {
         setLoading(true);
@@ -19,7 +23,7 @@ export default function App() {
           setBarcode('');
         } catch (e) {
           if (e?.response?.status === 404)
-            console.log('404 Status');
+            setError(true);
         }
         setLoading(false);
       })();
@@ -31,12 +35,14 @@ export default function App() {
 
     if (!value.length || /^[0-9]+$/.test(value))
       setBarcode(value)
+    else if (!error)
+      setError(true);
   }
 
   return (
     <Fragment>
       <p style={{opacity: .15, textAlign: 'center', padding: '1rem 0'}}>4000177211328 - 8000500290408 - 3256540002494 - 3256540002500</p>
-      <Input value={barcode} onChange={onChange} loading={loading} />
+      <Input value={barcode} onChange={onChange} loading={loading} error={error} />
       <Historic items={historic} />
     </Fragment>
   );
