@@ -35,7 +35,7 @@
       background-color: $white;
       color: $gray;
       
-      &:hover .cell {background-color: $white-2;}
+      &:hover:not(.empty) .cell {background-color: $white-2;}
       &:last-child .cell {border-bottom: none;}
       
       .cell {

@@ -37,7 +37,7 @@ export default function Historic({ items }: IHistoric): ReactElement {
           <th className={style.cell}>EAN</th>
         </tr>
         {!items.length && (
-          <tr className={style.row}>
+          <tr className={cls(style.empty, style.row)}>
             <td className={cls(style.cell, style.empty)} colSpan={4}>L'historique est vide.</td>
           </tr>
         )}
