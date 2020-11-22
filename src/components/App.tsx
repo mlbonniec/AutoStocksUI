@@ -24,8 +24,7 @@ export default function App() {
         setLoading(false);
       })();
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [barcode]);
+  }, [barcode]); // eslint-disable-line react-hooks/exhaustive-deps
 
   function onChange(e: any) {
     const { value } = e.target;
