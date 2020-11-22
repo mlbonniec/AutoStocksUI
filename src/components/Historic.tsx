@@ -1,4 +1,4 @@
-import React, { Fragment, ReactElement } from 'react';
+import React, { ReactElement } from 'react';
 import cls from '../utils/multi-classes';
 import style from '../styles/historic.module.scss';
 
