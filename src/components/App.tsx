@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { Fragment, useEffect, useState } from 'react';
 import Historic, { IItem } from './Historic';
+import Input from './Input';
 // import style from '../styles/app.module.scss';
 
 export default function App() {
@@ -28,8 +29,7 @@ export default function App() {
   
   return (
     <Fragment>
-      {loading ? <h1>Chargement...</h1> : <h1>En attente</h1>}
-      <input type="text" name="barcode" id="barcode" onChange={e => setBarcode(e.target.value)} />
+      <Input value={barcode} onChange={onChange} loading={loading} />
       <Historic items={historic} />
     </Fragment>
   );
