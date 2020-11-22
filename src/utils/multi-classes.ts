@@ -1,9 +1,5 @@
-export default function MultiClasses(...classes: string[]): string {
-  return classes.reduce((previous, current) => {
-    let output = previous;
-    if (previous)
-      output += ' ';
-    output += current;
-    return output;
-  });
+export default function MultiClasses(...classes: (string | null | undefined)[]): string {
+  const filtered: string[] = classes.filter((e): e is string => typeof e === 'string');
+  
+  return filtered.join(' ');
 }

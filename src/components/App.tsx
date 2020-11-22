@@ -5,7 +5,7 @@ import Input from './Input';
 // import style from '../styles/app.module.scss';
 
 export default function App() {
-  const [barcode, setBarcode] = useState<string | null>(null);
+  const [barcode, setBarcode] = useState<string>('');
   const [historic, setHistoric] = useState<IItem[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   
@@ -17,6 +17,7 @@ export default function App() {
           const sku = await axios.post(process.env.REACT_APP_API_URL + '/sku/' + barcode);
 
           setHistoric([sku.data, ...historic]);
+          setBarcode('');
         } catch (e) {
           if (e?.response?.status === 404)
             console.log('404 Status');
@@ -26,9 +27,17 @@ export default function App() {
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [barcode]);
-  
+
+  function onChange(e: any) {
+    const { value } = e.target;
+
+    if (!value.length || /^[0-9]+$/.test(value))
+      setBarcode(value)
+  }
+
   return (
     <Fragment>
+      <p style={{opacity: .15, textAlign: 'center', padding: '1rem 0'}}>4000177211328 - 8000500290408 - 3256540002494 - 3256540002500</p>
       <Input value={barcode} onChange={onChange} loading={loading} />
       <Historic items={historic} />
     </Fragment>
