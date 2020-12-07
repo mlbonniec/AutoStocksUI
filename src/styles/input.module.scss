@@ -1,65 +1,65 @@
 @import './variables';
 
 #container {
-  display: flex;
-  background-color: $white;
-  border-radius: .65rem;
-  width: 50%;
-  margin: auto;
-  margin-bottom: 2.5rem;
-  border: 2px solid $white-2;
-  transition: .2s ease-in-out all;
-  box-shadow: 0 0 2.5rem $white-2;
-  
-  &.error {
-    border-color: #f5c6cb;
-    background-color: rgba(#f8d7da, .35);
-  }
-  
-  &.disabled {
-    background-color: $white-2;
-    
-    .input {
-      color: $blue;
-    }
-  }
-  
-  .icon {
-    height: 27.5px;
-    margin: .85rem 1.15rem;
-    
-    &.spinner {
-      animation: rotate 2s linear infinite;
-      width: 30px;
-      
-      & .path {
-        stroke: $blue;
-        stroke-linecap: round;
-        animation: dash 1.5s ease-in-out infinite;
-      }
-    }
-    
-    @keyframes rotate {
-      100% {transform: rotate(360deg);}
-    }
-    
-    @keyframes dash {
-      0% {stroke-dasharray: 1, 150; stroke-dashoffset: 0;}
-      50% {stroke-dasharray: 90, 150; stroke-dashoffset: -35;}
-      100% {stroke-dasharray: 90, 150; stroke-dashoffset: -124;}
-    }    
-  }
-  
-  .input {
-    width: 100%;
-    padding: 0;
-    
-    background-color: transparent;
-    border: none;
-    
-    &::placeholder {
-      opacity: .25;
-      font-size: 1.25rem;
-    }
-  }
+	display: flex;
+	background-color: $white;
+	border-radius: .65rem;
+	width: 50%;
+	margin: auto;
+	margin-bottom: 2.5rem;
+	border: 2px solid $white-2;
+	transition: .2s ease-in-out all;
+	box-shadow: 0 0 2.5rem $white-2;
+	
+	&.error {
+		border-color: #f5c6cb;
+		background-color: rgba(#f8d7da, .35);
+	}
+	
+	&.disabled {
+		background-color: $white-2;
+		
+		.input {
+			color: $blue;
+		}
+	}
+	
+	.icon {
+		height: 27.5px;
+		margin: .85rem 1.15rem;
+		
+		&.spinner {
+			animation: rotate 2s linear infinite;
+			width: 30px;
+			
+			& .path {
+				stroke: $blue;
+				stroke-linecap: round;
+				animation: dash 1.5s ease-in-out infinite;
+			}
+		}
+		
+		@keyframes rotate {
+			100% {transform: rotate(360deg);}
+		}
+		
+		@keyframes dash {
+			0% {stroke-dasharray: 1, 150; stroke-dashoffset: 0;}
+			50% {stroke-dasharray: 90, 150; stroke-dashoffset: -35;}
+			100% {stroke-dasharray: 90, 150; stroke-dashoffset: -124;}
+		}		
+	}
+	
+	.input {
+		width: 100%;
+		padding: 0;
+		
+		background-color: transparent;
+		border: none;
+		
+		&::placeholder {
+			opacity: .25;
+			font-size: 1.25rem;
+		}
+	}
 }

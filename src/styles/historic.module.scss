@@ -1,65 +1,70 @@
 @import './variables';
 
 #container {
-  width: 85%;
-  margin: 0 auto;
-  margin-bottom: 5rem;
-  
-  .title {
-    margin-bottom: .75rem;
-    text-align: center;
-  }
-  
-  .content {
-    font-size: 1rem;
-    width: 100%;
-    overflow: hidden;
-    box-shadow: 0 0 2.5rem $white-2;
-    
-    border-radius: .5rem;
-    color: $black;
-    
-    .header {
-      text-align: left;
-      color: $white !important;
-      font-weight: bold;
-    
-      &:hover {
-        background-color: $blue;
-        cursor: initial !important;
-      }
-    
-      .cell {background-color: $blue !important;}
-    }
-    
-    .row {
-      background-color: $white;
-      color: $gray;
-      
-      &:hover:not(.empty) .cell {background-color: $white-2;}
-      &:last-child .cell {border-bottom: none;}
-      
-      .cell {
-        min-width: 150px;
-        padding: 1rem;
-        padding-left: 0;
-        hyphens: auto;
-        line-break: anywhere;
-        background-color: $white;
-        transition: .05s ease-in-out background-color;
-        border-bottom: 1px solid #f2f2f2;
-      
-        &:nth-child(2) {width: unset;}
-        &:first-child {padding-left: 1.5rem;}
-        &:nth-child(1), &:nth-child(2), &:nth-child(3) {line-break: initial;}
-        
-        &.empty {text-align: center;}
-        
-        a {
-          color: $blue;
-          cursor: pointer;
-        }
-      }
-    }
-  }
+	width: 85%;
+	margin: 0 auto;
+	margin-bottom: 5rem;
+	
+	.title {
+		margin-bottom: .75rem;
+		text-align: center;
+	}
+	
+	.content {
+		font-size: 1rem;
+		width: 100%;
+		overflow: hidden;
+		box-shadow: 0 0 2.5rem $white-2;
+		
+		border-radius: .5rem;
+		color: $black;
+		
+		.header {
+			text-align: left;
+			color: $white !important;
+			font-weight: bold;
+		
+			&:hover {
+				background-color: $blue;
+				cursor: initial !important;
+			}
+		
+			.cell {background-color: $blue !important;}
+		}
+		
+		.row {
+			background-color: $white;
+			color: $gray;
+			
+			&:hover:not(.empty) .cell {background-color: $white-2;}
+			&:last-child .cell {border-bottom: none;}
+			
+			.cell {
+				min-width: 150px;
+				padding: 1rem;
+				padding-left: 0;
+				hyphens: auto;
+				line-break: anywhere;
+				background-color: $white;
+				transition: .05s ease-in-out background-color;
+				border-bottom: 1px solid #f2f2f2;
+			
+				&:nth-child(2) {width: unset;}
+				&:first-child {padding-left: 1.5rem;}
+				&:nth-child(1), &:nth-child(2), &:nth-child(3) {line-break: initial;}
+				
+				&.empty {text-align: center;}
+				
+				a {color: $blue; cursor: pointer;}
+				
+				.toggle {
+					display: block;
+					color: $blue;
+					font-size: .95rem;
+					text-decoration: underline;
+					cursor: pointer;
+				}
+			}
+		}
+	}
 }
