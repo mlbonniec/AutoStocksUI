@@ -45,7 +45,6 @@
         padding-left: 0;
         hyphens: auto;
         line-break: anywhere;
-        cursor: pointer;
         background-color: $white;
         transition: .05s ease-in-out background-color;
         border-bottom: 1px solid #f2f2f2;
@@ -55,6 +54,11 @@
         &:nth-child(1), &:nth-child(2), &:nth-child(3) {line-break: initial;}
         
         &.empty {text-align: center;}
+        
+        a {
+          color: $blue;
+          cursor: pointer;
+        }
       }
     }
   }
