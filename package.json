@@ -24,7 +24,8 @@
   "license": "GPL-3.0-or-later",
   "scripts": {
     "dev": "react-scripts start",
-    "build": "react-scripts build"
+    "build": "react-scripts build",
+    "prod": "npx serve -s build"
   },
   "eslintConfig": {
     "extends": [
