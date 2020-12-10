@@ -19,7 +19,7 @@ export default function App() {
 				try {
 					const { data }: { data: IItem } = await axios.post(process.env.REACT_APP_API_URL + '/sku/' + barcode);
 
-					setHistoric([data, ...historic]);
+					setHistoric([{...data, key: historic.length}, ...historic]);
 					setBarcode('');
 				} catch (e) {
 					if (e?.response?.status === 404)

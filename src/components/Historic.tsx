@@ -3,6 +3,7 @@ import cls from '../utils/multi-classes';
 import style from '../styles/historic.module.scss';
 
 export interface IItem {
+	key: number;
 	brands: string;
 	image: string;
 	ingredients: string;
@@ -43,7 +44,8 @@ export default function Historic({ items }: IHistoric): ReactElement {
 							<td className={cls(style.cell, style.empty)} colSpan={6}>L'historique est vide.</td>
 						</tr>
 					)}
-					{items.map((e: IItem, i: number) => (
+					{items.map((e: IItem) => (
+						<Item ean={e.ean} product={e.product} image={e.image} ingredients={e.ingredients} quantity={e.quantity} brands={e.brands} key={e.key} />
 					))}
 				</tbody>
 			</table>
