@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useState } from 'react';
 import cls from '../utils/multi-classes';
 import style from '../styles/historic.module.scss';
 
@@ -9,26 +9,44 @@ export interface IItem {
 	ingredients: string;
 	quantity: string;
 	ean: string;
-	name: string;
+	product: string;
 }
 
 interface IHistoric {
 	items: IItem[];
 }
 
-function Item({ ean, name, image, ingredients, quantity, brands }: IItem): ReactElement {
-  return (
-    <tr className={style.row}>
-      <td className={style.cell} title={ean}>{ean}</td>
-      <td className={style.cell} title={name}>{name}</td>
-      <td className={style.cell} title={image}>
-        <a href={image} target="_blank" rel="noreferrer">{image}</a>
-      </td>
-      <td className={style.cell} title={ingredients}>{ingredients}</td>
-      <td className={style.cell} title={quantity}>{quantity}</td>
-      <td className={style.cell} title={brands}>{brands}</td>
-    </tr>
-  )
+function shortString(str: string, length: number): string {
+	return str.split(/\s+/).slice(0, length).join(' ');
+}
+
+function Item({ ean, product, image, ingredients, quantity, brands }: IItem): ReactElement {
+	const [shortIngredients, setShortIngredients] = useState<string>(shortString(ingredients, 20).concat('...'));
+	
+	function onClick() {
+		if (ingredients !== shortIngredients)
+			setShortIngredients(ingredients);
+		else
+			setShortIngredients(shortString(ingredients, 20).concat('...'));
+	}
+
+	return (
+		<tr className={style.row}>
+			<td className={style.cell} title={ean}>{ean}</td>
+			<td className={style.cell} title={product}>{product}</td>
+			<td className={style.cell} title={image}>
+				<a href={image} target="_blank" rel="noreferrer">{image}</a>
+			</td>
+			<td className={style.cell} title={ingredients}>
+				{shortIngredients}
+				<span className={style.toggle} onClick={onClick}>
+					Afficher {ingredients === shortIngredients ? 'moins' : 'plus'}
+				</span>
+			</td>
+			<td className={style.cell} title={quantity}>{quantity}</td>
+			<td className={style.cell} title={brands}>{brands}</td>
+		</tr>
+	)
 }
 
 export default function Historic({ items }: IHistoric): ReactElement {
@@ -38,6 +56,12 @@ export default function Historic({ items }: IHistoric): ReactElement {
 			<table className={style.content}>
 				<tbody>
 					<tr className={cls(style.header, style.row)}>
+						<th className={style.cell}>EAN</th>
+						<th className={style.cell}>Produit</th>
+						<th className={style.cell}>Image</th>
+						<th className={style.cell}>Ingrédients</th>
+						<th className={style.cell}>Quantité</th>
+						<th className={style.cell}>Marques</th>
 					</tr>
 					{!items.length && (
 						<tr className={cls(style.empty, style.row)}>
