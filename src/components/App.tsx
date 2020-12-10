@@ -41,7 +41,7 @@ export default function App() {
 
 	return (
 		<Fragment>
-			<p style={{opacity: .15, textAlign: 'center', padding: '1rem 0'}}>4000177211328 - 8000500290408 - 3256540002494 - 3256540002500</p>
+			{process.env.NODE_ENV === 'development' && <p style={{opacity: .15, textAlign: 'center', paddingTop: '1rem'}}>4000177211328 - 8000500290408 - 3256540002494 - 3256540002500</p>}
 			<Input value={barcode} onChange={onChange} loading={loading} error={error} />
 			<Historic items={historic} />
 		</Fragment>
